@@ -1,19 +1,14 @@
 ﻿using System;
+using FDBTest;
 
-namespace FDBTest
-{
-    public class BankAccount
+
+public class Pig : IAnimal
     {
-        string _customerName;
-        double _balance;
-
-        public BankAccount(string customerName, double balance)
+        public void animalSound()
         {
-            _customerName = customerName;
-            _balance = balance;
+            // The body of animalSound() is provided here
+            Console.WriteLine("The pig says: wee wee");
         }
-
-        public double Balance { get { return _blance; } }
     }
-}
+
 
