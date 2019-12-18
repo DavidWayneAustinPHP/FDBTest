@@ -4,8 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FDBTest;
-u
-
 
 namespace FDBTest
 {
@@ -31,8 +29,8 @@ namespace FDBTest
             Console.WriteLine("Completed pushing to Github");
             Console.WriteLine("More stuff");
             Pig myPig = new Pig();            
-
-
+            
+            myPig.
             myPig.animalSound();
 
             Console.ReadKey();
