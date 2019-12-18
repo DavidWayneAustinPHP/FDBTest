@@ -30,7 +30,6 @@ namespace FDBTest
             Console.WriteLine("More stuff");
             Pig myPig = new Pig();            
             
-            myPig.
             myPig.animalSound();
 
             Console.ReadKey();
