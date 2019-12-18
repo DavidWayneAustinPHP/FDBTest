@@ -11,6 +11,7 @@ namespace FDBTest
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            Console.WriteLine("Completed pushing to Github");
             Console.ReadKey();
 
         }
