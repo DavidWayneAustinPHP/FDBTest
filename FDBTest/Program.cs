@@ -28,9 +28,12 @@ namespace FDBTest
             Console.WriteLine("Hello World!");
             Console.WriteLine("Completed pushing to Github");
             Console.WriteLine("More stuff");
-            Pig myPig = new Pig();            
+            Pig myPig = new Pig();
+            DatainfoME myTest = new DatainfoME();
             
             myPig.animalSound();
+
+            Console.WriteLine(myTest.ffhhg + "and another" + myTest.meme);
 
             Console.ReadKey();
 
