@@ -39,7 +39,7 @@ namespace FDBMSUnit.Test
         {
             // Setup variables for tests
 
-            int expected3 = 11;
+            int expected3 = 12;
             DatainfoME myTest = new DatainfoME();
             Pig myPig = new Pig();
 
