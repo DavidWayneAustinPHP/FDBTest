@@ -9,20 +9,6 @@ namespace FDBTest
 {
     class Program
     {
-        interface IAnimal
-            {
-                void animalSound(); // interface method (does not have a body)
-            }
-    
-        public class Pig : IAnimal
-        {
-            public void animalSound()
-            {
-                // The body of animalSound() is provided here
-                Console.WriteLine("The pig says: wee wee");
-            }
-        }
-
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
@@ -34,6 +20,8 @@ namespace FDBTest
             myPig.animalSound();
 
             Console.WriteLine(myTest.ffhhg + "and another" + myTest.meme);
+
+            Console.WriteLine("Adding two values: " + myTest.addValues());
 
             Console.ReadKey();
 
