@@ -11,18 +11,28 @@ namespace FDBTest
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            Console.WriteLine("Completed pushing to Github");
-            Console.WriteLine("More stuff");
-            Pig myPig = new Pig();
-            DatainfoME myTest = new DatainfoME();
-            
-            myPig.animalSound();
+            // Declare variable
+            DatainfoGame FDBMazeGame = new DatainfoGame();
+            int startingScore = 0;
 
-            Console.WriteLine(myTest.ffhhg + "and another" + myTest.meme);
+            // Draw Maze
+            FDBMazeGame.drawMaze();
 
-            Console.WriteLine("Adding two values: " + myTest.addValues());
+            // Set mines and starting points for game
+            FDBMazeGame.setMines();
+            Console.WriteLine();
+            Console.WriteLine("Press any key to start the game.");
+            Console.WriteLine("Use cursor key to control your character and reach the top of the maze.");
+            Console.WriteLine("Try avoid the mines on the way");
 
+            // Start Game and check record score and check if won
+            FDBMazeGame.startAndRunGame(startingScore);
+
+            // Game ends write to the screen the player result and score
+            Console.ReadLine();
+            Console.WriteLine("Thank you for trying the game has ended");
+            Console.WriteLine("Your score was: ",  FDBMazeGame.mazeGameScore(startingScore));
+            Console.WriteLine("Please press any key to close the game");
             Console.ReadKey();
 
         }

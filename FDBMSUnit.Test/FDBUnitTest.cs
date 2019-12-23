@@ -7,47 +7,99 @@ namespace FDBMSUnit.Test
     public class FDBUnitTest
     {
         [TestMethod]
-        public void TestAddingSomeNumbers()
+        public void TestMazeDrawCorrectly()
         {
             // Setup variables for tests
-            int expected1 = 11;
-            DatainfoME myTest = new DatainfoME();
-            Pig myPig = new Pig();
-
-            // Get Actual values
-            int actual = 11;
+            bool mazeDrawCorrectly = true;
+            DatainfoGame FDBMazeGame = new DatainfoGame();
+            
+            // Get Actual values - Need to build test case
+            bool actual = FDBMazeGame.drawMaze();
 
             //Asset tests and produce results
-            Assert.AreEqual(expected1, actual);
+            Assert.AreEqual(mazeDrawCorrectly, actual);
         }
         [TestMethod]
-        public void TestAddingSomeNumbers1()
+        public void TestMazeStartingScore()
         {
             // Setup variables for tests
-            int expected2 = 8;
-            DatainfoME myTest = new DatainfoME();
-            Pig myPig = new Pig();
-
-            // Get Actual values
-            int actual2 = myTest.addForeignValues(3, 5);
+            int startScore = 0;
+            DatainfoGame FDBMazeGame = new DatainfoGame();
+            
+            // Get Actual values -  Need to build test case
+            int actual2 = FDBMazeGame.mazeGameScore(startScore);
 
             //Asset tests and produce results
-            Assert.AreEqual(expected2, actual2);
+            Assert.AreEqual(startScore, actual2);
         }
         [TestMethod]
-        public void TestAddingSomeNumbers2()
+        public void TestMovePlayer()
         {
             // Setup variables for tests
+            bool expected = true;
+            DatainfoGame FDBMazeGame = new DatainfoGame();
 
-            int expected3 = 11;
-            DatainfoME myTest = new DatainfoME();
-            Pig myPig = new Pig();
 
-            // Get Actual values
-            int actual3 = myTest.addValues();
+            // Get Actual values - Need to build test case
+            bool actual3 = FDBMazeGame.movePlayer();
 
             //Asset tests and produce results
-            Assert.AreEqual(expected3, actual3);
+            Assert.AreEqual(expected, actual3);
+        }
+        [TestMethod]
+        public void TestSetMines()
+        {
+            // Setup variables for tests
+            bool expected = true;
+            DatainfoGame FDBMazeGame = new DatainfoGame();
+
+
+            // Get Actual values - Need to build test case
+            bool actual3 = FDBMazeGame.setMines();
+
+            //Asset tests and produce results
+            Assert.AreEqual(expected, actual3);
+        }
+        [TestMethod]
+        public void TestCheckHitMines()
+        {
+            // Setup variables for tests
+            bool expected = true;
+            DatainfoGame FDBMazeGame = new DatainfoGame();
+
+
+            // Get Actual values - Need to build test case
+            bool actual3 = FDBMazeGame.checkHitMines();
+
+            //Asset tests and produce results
+            Assert.AreEqual(expected, actual3);
+        }
+        [TestMethod]
+        public void TestcheckIfWonGame()
+        {
+            // Setup variables for tests
+            bool expected = true;
+            DatainfoGame FDBMazeGame = new DatainfoGame();
+
+
+            // Get Actual values - Need to build test case
+            bool actual3 = FDBMazeGame.checkIfWonGame();
+
+            //Asset tests and produce results
+            Assert.AreEqual(expected, actual3);
+        }
+        [TestMethod]
+        public void TestStartAndRunGame()
+        {
+            // Setup variables for tests
+            int expected = 0;
+            DatainfoGame FDBMazeGame = new DatainfoGame();
+
+            // Get Actual values - Need to build test case
+            int actual3 = FDBMazeGame.startAndRunGame(expected);
+
+            //Asset tests and produce results
+            Assert.AreEqual(expected, actual3);
         }
     }
 }

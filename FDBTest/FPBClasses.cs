@@ -10,27 +10,63 @@ namespace FDBTest
     {
     }
 
-    public class  DatainfoME : AddSomeNumbers
+    public class  DatainfoGame : FDBMazeGame
     {
-        public int meme = 5;
-        public int ffhhg = 6;
+        // Declare starting variables
+        private int startPositionX = 0;
+        private int startPositionY = 0;
+        private int numberOfMines = 5;
+        private int maxNumerMinesHit = 2;
+        private int finishPositionX = 8;
+        private int finishPositionY = 8;
+        private int gameScore = 0;
 
-        public int addValues()
+        public bool drawMaze()
         {
-            return meme + ffhhg;
+            int i, j, remainder;
+            for (i = 1; i <= 8; i++)
+            {
+                if (i % 2 == 0) { remainder = 1; }
+                else { remainder = 0; }
+                for (j = 1; j <= 8; j++)
+                {
+                    if (j % 2 == remainder)
+                    { Console.Write("O"); }
+                    else { Console.Write("X"); }
+                }
+                Console.WriteLine();
+            }
+            return true;
         }
 
-        public int addForeignValues(int num1, int num2)
+        public int startAndRunGame(int gameScore)
         {
-            return num1 + num2;
+            return gameScore;
         }
-    }
-    public class Pig : FDBInterfaces
-    {
-        public void animalSound()
+
+        public int mazeGameScore(int gameScore)
         {
-            // The body of animalSound() is provided here
-            Console.WriteLine("The pig says: wee wee");
+            return gameScore;
+        }
+
+        public bool movePlayer()
+        {
+            return true;
+        }
+
+        public bool setMines()
+        {
+            return true;
+        }
+
+        public bool checkHitMines()
+        {
+            return true;
+        }
+
+        public bool checkIfWonGame()
+        {
+            return true;
         }
     }
 }

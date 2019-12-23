@@ -1,13 +1,13 @@
 ﻿namespace FDBTest
 {
-    public interface FDBInterfaces
+    public interface FDBMazeGame
     {
-        void animalSound(); 
-    }
-
-    public interface AddSomeNumbers
-    {
-        int addValues();
-        int addForeignValues(int num1, int num2);
+        bool drawMaze();
+        int startAndRunGame(int gameScore);
+        int mazeGameScore(int gameScore);
+        bool movePlayer();
+        bool setMines();
+        bool checkHitMines();
+        bool checkIfWonGame();
     }
 }
