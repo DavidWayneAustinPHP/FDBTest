@@ -10,12 +10,17 @@ namespace FDBTest
     {
     }
 
+    public class MineLocation 
+    {
+        public int minePositionX;
+        public int minePositionY;
+    }
+
     public class  DatainfoGame : FDBMazeGame
     {
         // Declare starting variables
         private int startPositionX = 0;
         private int startPositionY = 0;
-        private int numberOfMines = 5;
         private int maxNumerMinesHit = 2;
         private int finishPositionX = 8;
         private int finishPositionY = 8;
@@ -54,9 +59,21 @@ namespace FDBTest
             return true;
         }
 
-        public bool setMines()
+        public List<MineLocation> setMines()
         {
-            return true;
+            Random randm = new Random();
+            var mineLocationsAll = new List<MineLocation>();
+            int numberOfMines = randm.Next(1, 10);
+
+            for (int i=0; i < numberOfMines; i++)
+            {
+                mineLocationsAll.Add(new MineLocation()
+                {
+                    minePositionX = randm.Next(1, 8),
+                    minePositionY = randm.Next(1, 8)
+                });
+            }
+            return mineLocationsAll;
         }
 
         public bool checkHitMines()

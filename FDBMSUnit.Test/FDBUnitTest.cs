@@ -47,20 +47,6 @@ namespace FDBMSUnit.Test
             Assert.AreEqual(expected, actual3);
         }
         [TestMethod]
-        public void TestSetMines()
-        {
-            // Setup variables for tests
-            bool expected = true;
-            DatainfoGame FDBMazeGame = new DatainfoGame();
-
-
-            // Get Actual values - Need to build test case
-            bool actual3 = FDBMazeGame.setMines();
-
-            //Asset tests and produce results
-            Assert.AreEqual(expected, actual3);
-        }
-        [TestMethod]
         public void TestCheckHitMines()
         {
             // Setup variables for tests

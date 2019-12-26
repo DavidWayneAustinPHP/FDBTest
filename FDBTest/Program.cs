@@ -21,16 +21,13 @@ namespace FDBTest
             // Building the game once code written then add to the classes, interfaces and build the tests
             int playerPosX = 8;
             int playerPosY = 8;
-            int mine1PosX = 4, mine1PosY = 5;     // Needs to be a random number of mines
-            int mine2PosX = 7, mine2PosY = 3;     // Needs to be a random number of mines
             int maxNumberMinesHit = 2;
             int numberMinesCollided = 0;
             int mazeLength = 8;
             int mazeHeight = 8;
             char mazePlayer = '*';
             char mazeSpace = '-';
-            char mazeMine = '#';     // Needs to be a random number of mines
-            // int finishPosX = 8;
+            char mazeMine = '#';    // Needs to be a random number of mines
             int finishPosY = 1;     // If player reaches botton most are then game ends
 
             // Game Headings and intructions
@@ -40,6 +37,10 @@ namespace FDBTest
             Console.WriteLine("Try avoid the mines on the way");
             Console.WriteLine();
 
+            // Create randon number of mines and obtain positions for placement in the maze
+            var allMineLocations = FDBMazeGame.setMines();
+
+            // Run game and rebuild the maze on key pressed
             while (playerPosY > finishPosY && numberMinesCollided < maxNumberMinesHit)
             {
                 ConsoleKeyInfo keyPressed = Console.ReadKey();
@@ -49,8 +50,10 @@ namespace FDBTest
                     playerPosY += (keyPressed.Key == ConsoleKey.D) ? 1 : -1;
                     ++startingScore;
 
-                    if (playerPosX == mine1PosX && playerPosY == mine1PosY) ++numberMinesCollided;
-                    if (playerPosX == mine2PosX && playerPosY == mine2PosY) ++numberMinesCollided;
+                    foreach (var m in allMineLocations)
+                    {
+                        if (playerPosX == m.minePositionX && playerPosY == m.minePositionY) ++numberMinesCollided;
+                    }
                 } 
                 else if ((keyPressed.Key == ConsoleKey.L || playerPosX != 1) || (keyPressed.Key == ConsoleKey.R && playerPosX != mazeLength))
                 {
@@ -59,8 +62,10 @@ namespace FDBTest
                     if (playerPosX < 1) playerPosX = 1;
                     ++startingScore;
 
-                    if (playerPosX == mine1PosX && playerPosY == mine1PosY) ++numberMinesCollided;
-                    if (playerPosX == mine2PosX && playerPosY == mine2PosY) ++numberMinesCollided;
+                    foreach (var m in allMineLocations)
+                    {
+                        if (playerPosX == m.minePositionX && playerPosY == m.minePositionY) ++numberMinesCollided;
+                    }
                 }
 
                 Console.Clear();
@@ -70,15 +75,21 @@ namespace FDBTest
                     for (int x = 1; x <= mazeLength; ++x)
                     {
                         if (x == playerPosX && y == playerPosY) Console.Write(mazePlayer);
-                        else if (x == mine1PosX && y == mine1PosY) Console.Write(mazeMine);
-                        else if (x == mine2PosX && y == mine2PosY) Console.Write(mazeMine);
-                        else Console.Write(mazeSpace);
+                        else 
+                        {
+                            bool placemine = false;
+                            foreach (var m in allMineLocations)
+                            {
+                                if (x == m.minePositionX && y == m.minePositionY) placemine = true;
+                            }
+                            if (placemine) Console.Write(mazeMine);
+                            else Console.Write(mazeSpace);
+                        }
                     }
                     Console.WriteLine();
                 }
                 Console.WriteLine();
                 Console.WriteLine("Current Player position in the Maze: " + playerPosX + ", " + playerPosY);
-
             }
 
             // Start Game and check record score and check if won
@@ -89,6 +100,7 @@ namespace FDBTest
             if (numberMinesCollided >= maxNumberMinesHit) Console.WriteLine("Game has ended without reaching the top, too many mines hit.");
             Console.WriteLine("You have taken " + startingScore + " moves to complete the game");
             Console.WriteLine("And hit " + numberMinesCollided + " mines along the way");
+            Console.WriteLine("Number of mines in the maze " + allMineLocations.Count());
             Console.WriteLine("Please press any key to close the game");
             Console.ReadKey();
         }
