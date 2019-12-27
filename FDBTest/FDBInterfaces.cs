@@ -1,12 +1,19 @@
-﻿namespace FDBTest
+﻿using System.Collections.Generic;
+
+namespace FDBTest
 {
-    public interface FDBMazeGame
+    public interface FDBMazeVariables
     {
-        bool drawMaze();
-        int startAndRunGame(int gameScore);
-        int mazeGameScore(int gameScore);
-        bool movePlayer();
-        bool checkHitMines();
-        bool checkIfWonGame();
+        
+    }
+
+    public interface FDBMinesClass
+    {
+
+    }
+
+    public interface FDBMazeSetMines
+    {
+        List<MineLocation> setMines();
     }
 }
