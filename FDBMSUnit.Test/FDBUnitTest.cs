@@ -54,5 +54,37 @@ namespace FDBMSUnit.Test
             //Asset tests and produce results
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void TestFDBFinishingPosition()
+        {
+            // Setup variables for tests
+            var expectedMineLocation = new List<MineLocation>();
+            DatainfoGame expectedFDBMazeGame = new DatainfoGame();
+            MazeGameData expectedGameData = new MazeGameData();
+            int expected = 1;
+
+            // Get Actual values - Need to build test case
+            int actual = expectedGameData.playerPosY;
+
+            //Asset tests and produce results
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void TestFDBNumberMinesHit()
+        {
+            // Setup variables for tests
+            var expectedMineLocation = new List<MineLocation>();
+            DatainfoGame expectedFDBMazeGame = new DatainfoGame();
+            MazeGameData expectedGameData = new MazeGameData();
+            int expected = 2;
+
+            // Get Actual values - Need to build test case
+            int actual = expectedGameData.numberMinesCollided;
+
+            //Asset tests and produce results
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
